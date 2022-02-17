@@ -27,7 +27,7 @@ def chess_game(size_x=8,size_y=8):
         #if the 2 pieces are in the same x or y axis, the rook can take down the pawn
         if position_bishop[1] == position_rook[1] or position_bishop[0] == position_rook[0]:
             points_white+=1
-        #if the rook and the bishop are in the same diagonals, which meansa that if the slope of their coords is 1 or -1, the bishop can take down the pawn
+        #if the rook and the bishop are in the same diagonals, which means that if the slope of their coords is 1 or -1, the bishop can take down the pawn
         elif abs((position_bishop[1] - position_rook[1]) / (position_bishop[0] - position_rook[0])) == 1:
             points_black +=1 
 
