@@ -4,7 +4,6 @@
 τιμές σε δυαδικό και εμφανίστε το μήκος της μεγαλύτερης ακολουθίας με συνεχόμενα μηδενικά και το μήκος της μεγαλύτερης ακολουθίας με συνεχόμενες μονάδες
 '''
 
-from lib2to3.pgen2.pgen import DFAState
 from urllib.request import Request, urlopen
 import json
 
