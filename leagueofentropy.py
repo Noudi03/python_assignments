@@ -51,6 +51,3 @@ def max_0(data):
 #printing the results 
 print("the max sequence of 1s in the last 100 rounds is: ", max_1(list))
 print("the max sequence of 0s in the last 100 rounds is: ", max_0(list))
-        
-
- 
