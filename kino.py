@@ -23,19 +23,16 @@ split_random = []
 for pair in range(0, len(latest_random), 2):
     split_random.append(latest_random[pair:pair+2])
 
-
 #converting every number in the list to decimal
 #every number in the list will now be subsituted by 
 #the result of the remainder of the division of the number with 80
 for number in range(len(split_random)):
     split_random[number] = int(split_random[number], 16) % 80
 
-
 #initializing an empty list to add all the unique values from the split_random list
 list_no_dupes = []
 #adding all the numbers that are not already in the list_no_dupes 
 [list_no_dupes.append(number) for number in split_random if number not in list_no_dupes]
-
 
 #requesting the data from opap api
 req = Request('https://api.opap.gr/draws/v3.0/1100/last-result-and-active')
@@ -44,7 +41,6 @@ data = urlopen(req).read()
 #parsing the data to a python dictionairy
 saved_data = json.loads(data)
 winning_numbers = saved_data["last"]["winningNumbers"]["list"]
-
 
 #will check if each number in the list_no_dupes is in the winning numbers list
 #if it is the counter will be incremented by 1 
