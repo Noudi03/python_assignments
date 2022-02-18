@@ -25,7 +25,7 @@ for round in range(latest_round,latest_round-100,-1):
     #parsing the data
     data_saved = json.loads(data)
     randomness = data_saved["randomness"]
-    #converting the randomness variable from string to hex int and then to binary
+    #converting the randomness variable from string to int and then to binary
     randomness = bin(int(randomness,16))
     #adding the number to the list
     list.append(randomness)
