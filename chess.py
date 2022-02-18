@@ -31,12 +31,15 @@ def chess_game(size_x=8,size_y=8):
         elif abs((position_bishop[1] - position_rook[1]) / (position_bishop[0] - position_rook[0])) == 1:
             points_black +=1 
 
-    print(size_x,size_y)
+    print(f"{size_x} * {size_y} chessboard")
     return(points_white,points_black)
 
 #!8x8 chess board
-print(chess_game())
+wp, bp = chess_game()
+print(f"white points: {wp} \nblack points: {bp}")
 #!8x7 chess board
-print(chess_game(8,7))
+wp, pb = chess_game(8,7)
+print(f"white points: {wp} \nblack points: {bp}")
 #!7x7 chess board
-print(chess_game(7,7))
+wp, bp = chess_game(7,7)
+print(f"white points: {wp} \nblack points: {bp}")
