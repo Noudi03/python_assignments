@@ -20,6 +20,7 @@ def chess_game(size_x=8,size_y=8):
         #also,checking if they have the same position on the chessboard, if they do we assign the coords again.
         #this code block will be executed at least once
         while position_bishop == position_rook or position_queen == position_bishop or position_queen == position_rook:
+            
             x1 = random.randint(1,size_x)
             y1 = random.randint(1,size_y)
             x2 = random.randint(1,size_x)
@@ -97,10 +98,6 @@ def chess_game(size_x=8,size_y=8):
         #if the 2 pieces (bishop and queen) are in the same y axis,queen can take down the bishop
         if (position_bishop[0] == position_queen[0]) and not Triple_x:
             points_black+=1
-
-        
-        
-        
 
 
         #if the queen and the bishop are in the same diagonals, which means that the slope of their coords is 1 or -1, the pieces can take down each other
