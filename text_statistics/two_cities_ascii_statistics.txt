@@ -1,3 +1,3 @@
 The 10 most common words are: [('the', 8202), ('and', 4998), ('of', 4137), ('to', 3545), ('a', 2981), ('in', 2642), ('it', 2016), ('his', 2005), ('i', 1917), ('that', 1904)]
 The 3 most common combinations of the first 2 letters of the words are: [('th', 14481), ('an', 6132), ('of', 4342)]
-The 3 most common combinations of the first 3 letters of the words are: [('the', 10592), ('and', 5001), ('of', 4137)]
+The 3 most common combinations of the first 3 letters of the words are: [('the', 10592), ('and', 5001), ('tha', 2201)]

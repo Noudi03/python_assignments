@@ -35,7 +35,8 @@ most_common_1 = c1.most_common(10)
 #creating an empty list to store the first 2 letters of each word
 two_letters = []
 #adding the first two letter of each word in processed_data list to the two_letter list
-[two_letters.append(word[:2]) for word in processed_data]
+#the word will only be added to the list if its length is 2+ characters
+[two_letters.append(word[:2]) for word in processed_data if len(word) >=2]
 
 
 #creating an instance of the Counter for the two_letter list
@@ -47,7 +48,8 @@ most_common_2 = c2.most_common(3)
 #creating an empty list to store the first 3 letters of each word
 three_letters =[]
 #adding the first two letter of each word in processed_data list to the three_letter list
-[three_letters.append(word[:3]) for word in processed_data]
+#the word will only be added to the list if its length is 3+ characters
+[three_letters.append(word[:3]) for word in processed_data if len(word) >=3]
 #creating an instance of the Counter for the three_letter list
 c3 = Counter(three_letters)
 #finding the most 3 most common combinations of the first 3 letters
