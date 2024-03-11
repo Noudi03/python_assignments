@@ -10,62 +10,68 @@
 from collections import Counter
 
 file_name = input("Enter the name of the file: ")
-saving = input("Do you want the statistics to be saved in a new txt file? (y/n): ")
+saving = input(
+    "Do you want the statistics to be saved in a new txt file? (y/n): ")
 
-#opening the file
+# opening the file
 with open(file_name, "r") as f:
     content = f.read()
 
-#keeping only the letters and spaces from the content string
-processed_data = ''.join(word for word in content if word.isalpha() or word.isspace())
+# keeping only the letters and spaces from the content string
+processed_data = ''.join(
+    word for word in content if word.isalpha() or word.isspace())
 
-#turning every word to lowercase
+# turning every word to lowercase
 processed_data = processed_data.lower()
 
-#spliting the modified string to a list, seperated by spaces
+# spliting the modified string to a list, seperated by spaces
 processed_data = processed_data.split()
 
-#creating a new instance of the Counter
+# creating a new instance of the Counter
 c1 = Counter(processed_data)
 
-#finding the 10 most common words
+# finding the 10 most common words
 most_common_1 = c1.most_common(10)
 
-#find the 3 most common combinations of the first 2 letters
-#creating an empty list to store the first 2 letters of each word
+# find the 3 most common combinations of the first 2 letters
+# creating an empty list to store the first 2 letters of each word
 two_letters = []
-#adding the first two letter of each word in processed_data list to the two_letter list
-#the word will only be added to the list if its length is 2+ characters
-[two_letters.append(word[:2]) for word in processed_data if len(word) >=2]
+# adding the first two letter of each word in processed_data list to the two_letter list
+# the word will only be added to the list if its length is 2+ characters
+[two_letters.append(word[:2]) for word in processed_data if len(word) >= 2]
 
 
-#creating an instance of the Counter for the two_letter list
+# creating an instance of the Counter for the two_letter list
 c2 = Counter(two_letters)
-#finding the most 3 most common combinations of the first 2 letters
+# finding the most 3 most common combinations of the first 2 letters
 most_common_2 = c2.most_common(3)
 
-#find the 3 most common combinations of the first 3 letters
-#creating an empty list to store the first 3 letters of each word
-three_letters =[]
-#adding the first two letter of each word in processed_data list to the three_letter list
-#the word will only be added to the list if its length is 3+ characters
-[three_letters.append(word[:3]) for word in processed_data if len(word) >=3]
-#creating an instance of the Counter for the three_letter list
+# find the 3 most common combinations of the first 3 letters
+# creating an empty list to store the first 3 letters of each word
+three_letters = []
+# adding the first two letter of each word in processed_data list to the three_letter list
+# the word will only be added to the list if its length is 3+ characters
+[three_letters.append(word[:3]) for word in processed_data if len(word) >= 3]
+# creating an instance of the Counter for the three_letter list
 c3 = Counter(three_letters)
-#finding the most 3 most common combinations of the first 3 letters
+# finding the most 3 most common combinations of the first 3 letters
 most_common_3 = c3.most_common(3)
 
-#if the user answered y, will save the results in a file
+# if the user answered y, will save the results in a file
 if saving == "y":
-    #getting the name of the given file without the extension
+    # getting the name of the given file without the extension
     new_file = file_name.rsplit('.', 1)[0]
-    #creating the new file
+    # creating the new file
     with open(f"{new_file}_statistics.txt", "w") as f:
         f.write(f"The 10 most common words are: {most_common_1}\n")
-        f.write(f"The 3 most common combinations of the first 2 letters of the words are: {most_common_2}\n")
-        f.write((f"The 3 most common combinations of the first 3 letters of the words are: {most_common_3}"))
+        f.write(f"The 3 most common combinations of the first 2 letters of the words are: {
+                most_common_2}\n")
+        f.write((f"The 3 most common combinations of the first 3 letters of the words are: {
+                most_common_3}"))
 
-#printing the statistics
+# printing the statistics
 print(f"The 10 most common words are: {most_common_1}")
-print(f"The 3 most common combinations of the first 2 letters of the words are: {most_common_2}")
-print(f"The 3 most common combinations of the first 3 letters of the words are: {most_common_3}")
+print(f"The 3 most common combinations of the first 2 letters of the words are: {
+      most_common_2}")
+print(f"The 3 most common combinations of the first 3 letters of the words are: {
+      most_common_3}")

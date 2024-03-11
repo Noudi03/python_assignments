@@ -9,51 +9,29 @@
 import random
 import check
 
-#initializing a list with 9 cells that will represent the board
 
-game_board = ["0"] * 9
+def simulate_game():
+    # using empty strings to indicate no rings
+    game_board = [""] * 9
+    moves_counter = 0
+    while True:
+        index = random.randint(0, 8)
+        value = random.choice(["s", "m", "l"])
+        # check if the ring size already exists in the cell to prevent duplicates
+        if value not in game_board[index]:
+            game_board[index] += value
+            moves_counter += 1
+            # earliest win possible is after 5 moves
+            if moves_counter >= 5:
+                if check.check_win_condition(game_board):
+                    break
+    return moves_counter
 
-#initializing the moves_counter will increment every time a move is finished
-moves_counter = 0
 
-#initializing the sum of all total moves of the whole game that will be used to calculate the avg moves per game
-sum = 0
+def simulate_games(n=100):
+    total_moves = sum(simulate_game() for _ in range(n))
+    return total_moves / n
 
-#game has to be played 100 times
-game_count = 100
-for i in range(game_count):
-    
-    move = True
-    while move:
-        #generating a random index for the list to insert into the list
-        index = random.randint(0,8)
 
-        sizes = ["s","m","l"]
-        #picking a random size to insert to the list
-        value = random.choice(sizes)
-
-        #here we will check if the ring we are trying to place on the board has been placed in a previous move
-        
-        duplicate = check.duplicate(value, game_board[index])
-        
-        #if the move we are doing is valid, we will place the ring on the board
-        
-        if not duplicate:
-            if game_board[index] == "0":
-                game_board[index] = value
-            else:
-                game_board[index] += value
-            moves_counter+=1
-        
-        #checking if there is a winning pair (after the first 3 moves, no pair of 3 can be formed before them)
-        if moves_counter >=3:
-            
-            #calling the functions from the check file to determine if the game can end
-            if check.row(game_board) or check.column(game_board) or check.diagonal(game_board):
-                move = False
-                sum += moves_counter
-                #resetting the board and move_counter for the next game
-                moves_counter = 0
-                game_board = ["0"] * 9
-
-print("the average moves to end the game are: ",sum/game_count)
+average_moves = simulate_games(100)
+print(f"the average moves to end the game are: {average_moves}")
